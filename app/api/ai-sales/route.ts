@@ -1,7 +1,9 @@
+const AI_SALES_API_URL = process.env.AI_SALES_API_URL ?? "http://127.0.0.1/chat";
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const response = await fetch("http://31.56.117.24/api/ai-sales", {
+    const response = await fetch(AI_SALES_API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: body.user_id, message: body.message }),
